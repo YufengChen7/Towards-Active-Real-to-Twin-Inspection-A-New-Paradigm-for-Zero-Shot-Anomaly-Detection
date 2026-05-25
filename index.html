@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AVATAR: Active Real-to-Twin inspection for zero-shot anomaly detection.">
+  <meta property="og:title" content="AVATAR: Active Real-to-Twin Inspection">
+  <meta property="og:description" content="A CAD-grounded active inspection paradigm for zero-shot anomaly detection.">
+  <meta property="og:image" content="static/images/fig_1-1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>AVATAR | Real-to-Twin Inspection</title>
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="eyebrow">Zero-Shot Anomaly Detection with CAD Digital Twins</p>
+      <h1 class="publication-title">Towards Active Real-to-Twin Inspection: A New Paradigm for Zero-Shot Anomaly Detection</h1>
+
+      <div class="publication-authors">
+        <span>Jiaxuan Liu<sup>*</sup></span>
+        <span>Yunkang Cao<sup>*</sup></span>
+        <span>Yufeng Chen<sup>*</sup></span>
+        <span>Chunyang Li</span>
+        <span>Yuhuan Du</span>
+        <span>Hui Zhang<sup>&dagger;</sup></span>
+      </div>
+
+      <p class="affiliation">
+        National Engineering Research Center of Robot Visual Perception and Control Technology, Hunan University
+      </p>
+      <p class="author-note"><sup>*</sup>Equal contribution &nbsp; <sup>&dagger;</sup>Corresponding author</p>
+
+      <nav class="publication-links" aria-label="Project links">
+        <a class="button dark" href="static/pdfs/avatar.pdf" target="_blank" rel="noopener">Paper</a>
+        <a class="button dark" href="#demo">Video</a>
+        <span class="button disabled" aria-disabled="true">Code Soon</span>
+        <span class="button disabled" aria-disabled="true">Dataset Soon</span>
+        <span class="button disabled" aria-disabled="true">arXiv Soon</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="media-strip" id="demo">
+      <div class="container">
+        <video class="demo-video" autoplay muted loop playsinline controls poster="static/images/fig_1-1.png">
+          <source src="static/videos/avatar_demo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow">
+        <h2>Abstract</h2>
+        <p>
+          The deployment of zero-shot anomaly detection in embodied industrial inspection is severely bottlenecked by its reliance on passive, fixed-viewpoint 2D imagery. We introduce Real-to-Twin Anomaly Detection, a task that evaluates physical observations directly against geometrically matched CAD Digital Twins. To tackle this task, we propose AVATAR, a framework designed to learn robust semantic alignment between Real and Digital Twins.
+        </p>
+        <p>
+          By bridging benign Sim2Real domain gaps using only defect-free pairs, AVATAR transforms CAD priors into dynamic, anomaly-free references. This formulation enables the model to localize diverse anomalies in a zero-shot manner as unalignable deviations, eliminating the need for defect annotations.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <h2>Real-to-Twin Inspection Pipeline</h2>
+        <figure class="project-figure">
+          <img src="static/images/fig_1-1.png" alt="Overview of the Real-to-Twin inspection pipeline.">
+          <figcaption>
+            A robotic camera actively aligns physical observations with pose-matched CAD renderings, turning anomaly detection into direct design-consistency verification.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Real-to-Twin Data Acquisition</h2>
+        <figure class="project-figure">
+          <img src="static/images/fig_2-1.png" alt="Real-to-Twin data acquisition process.">
+          <figcaption>
+            Object pose estimation, feasible viewpoint sampling, robotic capture, and synchronized rendering produce strictly paired real-render observations.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container">
+        <h2>AVATAR Framework</h2>
+        <div class="two-column">
+          <div>
+            <p>
+              AVATAR learns twin-anchored representation calibration from normal real-render pairs. The real image acts as a spatial anchor, while the rendered Digital Twin provides an anomaly-free semantic dictionary.
+            </p>
+            <p>
+              During inference, regions that cannot be reassembled from the clean CAD dictionary produce high residual responses, yielding zero-shot anomaly localization maps.
+            </p>
+          </div>
+          <figure class="project-figure compact">
+            <img src="static/images/fig_3-1.png" alt="Overview of Twin-Anchored Representation Calibration.">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Results</h2>
+        <div class="metric-grid" aria-label="Main quantitative results">
+          <div class="metric">
+            <span class="metric-value">71.15</span>
+            <span class="metric-label">I-AUROC</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">90.24</span>
+            <span class="metric-label">I-AP</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">89.84</span>
+            <span class="metric-label">I-F1</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">23.75</span>
+            <span class="metric-label">P-AP</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">33.07</span>
+            <span class="metric-label">P-F1</span>
+          </div>
+        </div>
+
+        <figure class="project-figure">
+          <img src="static/images/fig_4-1.png" alt="Qualitative anomaly localization results.">
+          <figcaption>
+            AVATAR produces compact and consistent anomaly maps across texture, structural, and logical defects.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-light">
+      <div class="container narrow">
+        <h2>BibTeX</h2>
+        <pre class="bibtex"><code>@article{liu2026avatar,
+  title={Towards Active Real-to-Twin Inspection: A New Paradigm for Zero-Shot Anomaly Detection},
+  author={Liu, Jiaxuan and Cao, Yunkang and Chen, Yufeng and Li, Chunyang and Du, Yuhuan and Zhang, Hui},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container narrow">
+      <p>
+        This project page follows the style of common academic project pages and is adapted for AVATAR / Real-to-Twin inspection.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
