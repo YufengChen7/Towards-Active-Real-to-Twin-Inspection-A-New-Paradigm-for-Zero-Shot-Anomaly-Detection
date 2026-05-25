@@ -92,11 +92,23 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: baseline;
   gap: 4px 18px;
   margin: 0 auto 10px;
   color: #27313a;
   font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 600;
+}
+
+.publication-authors span {
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1.35;
+}
+
+.publication-authors sup {
+  line-height: 0;
+  margin-left: 1px;
 }
 
 .affiliation,
